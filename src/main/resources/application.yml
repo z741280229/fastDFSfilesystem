@@ -1,0 +1,50 @@
+server:
+  port: 8090
+# 默认使用开发配置
+spring:
+  profiles:
+    active: dev
+    
+#配置mybatis参数
+mybatis:
+  type-aliases-package: com.fox.innovate.pojo
+  mapper-locations: classpath:mapper/*.xml
+
+--- 
+  
+#开发配置
+spring:
+  profiles: dev
+
+  datasource: 
+    url: jdbc:mysql://47.107.131.56:3306/static_files?useUnicode=true&amp;characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: zl741280229
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 100MB
+
+
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  thumb-image:             #缩略图生成参数
+    width: 200
+    height: 200
+  tracker-list:            #TrackerList参数,支持多个
+    - 120.78.224.202:22122
+
+myprops:
+  fastUrl: http://120.78.224.202:8080
+
+
+
+
+
+
+
+
+
+
