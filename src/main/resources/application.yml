@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 12301
 # 默认使用开发配置
 spring:
   profiles:
@@ -25,7 +25,6 @@ spring:
     multipart:
       max-file-size: 20MB
       max-request-size: 100MB
-
 
 fdfs:
   so-timeout: 1501

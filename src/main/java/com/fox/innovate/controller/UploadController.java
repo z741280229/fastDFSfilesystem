@@ -92,7 +92,6 @@ public class UploadController {
      */
     @PostMapping("/batchUpload")
     public NetStaus batchFileUpload(HttpServletRequest request){
-
         String parentId = request.getParameter("parentId");
         String deviceId = request.getParameter("deviceId");
         String userId = request.getParameter("userId");

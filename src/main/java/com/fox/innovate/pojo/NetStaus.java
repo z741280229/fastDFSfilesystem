@@ -17,7 +17,9 @@ public class NetStaus {
     public final static Long DATA_NULL = 40L; // 输出数据成功
 
     public final static Long RESPONSE_FAILURE = 2000L; // 服务器响应失败
-    public final static Long RESPONSE_SUCCESS = 4000L; // 服务器响应失败
+    public final static Long RESPONSE_SUCCESS = 4000L; // 服务器响应成功
+
+    public final static Long FILE_OUT_MAX = 2001L;   //文件上传过大产生异常
 
     private Long code;  //返回转台码
     private String describe;  //问题描述
