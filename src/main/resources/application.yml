@@ -33,7 +33,7 @@ fdfs:
     width: 200
     height: 200
   tracker-list:            #TrackerList参数,支持多个
-    - 120.78.224.202:22122
+    - 120.78.224.202:12302
 
 myprops:
   fastUrl: http://120.78.224.202:8080

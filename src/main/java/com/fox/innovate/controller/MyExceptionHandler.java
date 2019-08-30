@@ -20,14 +20,12 @@ public class MyExceptionHandler {
     private String maxRequestSize;
 
 
-    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    @ExceptionHandler(Exception.class)
     public NetStaus handleMaxUploadSizeExceededException(MaxUploadSizeExceededException e) {
-
         NetStaus netStaus = new NetStaus();
         netStaus.setCode(NetStaus.FILE_OUT_MAX);
         netStaus.setDescribe("上传文件过大");
         Map map = new HashMap();
-
         map.put("maxFileSize",maxFileSize);
         map.put("maxRequestSize",maxRequestSize);
         netStaus.setResponseData(map);
