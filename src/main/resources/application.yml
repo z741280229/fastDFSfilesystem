@@ -19,8 +19,8 @@ spring:
   datasource: 
     url: jdbc:mysql://47.107.131.56:3306/static_files?useUnicode=true&amp;characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: zl741280229
+    username: *****
+    password: *****
   servlet:
     multipart:
       max-file-size: 20MB
