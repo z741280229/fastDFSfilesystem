@@ -43,5 +43,12 @@ public interface FileService {
      * @param fileId
      * @return
      */
-    int deletePicUrl(String fileId);
+    int deletePicUrl(String fileId,String userId);
+
+
+    /**
+     * 获取Token
+     * @return
+     */
+    String getToken();
 }

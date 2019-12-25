@@ -10,6 +10,7 @@
     <result column="file_name" property="fileName" jdbcType="VARCHAR" />
     <result column="file_type" property="fileType" jdbcType="VARCHAR" />
     <result column="file_size" property="fileSize" jdbcType="DECIMAL" />
+    <result column="file_upload_ip" property="fileUploadIp" jdbcType="VARCHAR" />
     <result column="file_upload_date" property="fileUploadDate" jdbcType="VARCHAR" />
     <result column="file_upload_time" property="fileUploadTime" jdbcType="VARCHAR" />
     <result column="file_delete_date" property="fileDeleteDate" jdbcType="VARCHAR" />
@@ -80,8 +81,8 @@
   </sql>
   <sql id="Base_Column_List" >
     file_id, parent_id, device_id, user_id, file_url, file_name, file_type, file_size, 
-    file_upload_date, file_upload_time, file_delete_date, file_delete_time, file_uploader_id, 
-    file_uploader_name, file_delete_id, file_delete_name, data_status
+    file_upload_ip, file_upload_date, file_upload_time, file_delete_date, file_delete_time, 
+    file_uploader_id, file_uploader_name, file_delete_id, file_delete_name, data_status
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.fox.innovate.pojo.FileExample" >
     select
@@ -97,7 +98,6 @@
       order by ${orderByClause}
     </if>
   </select>
-
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
@@ -117,16 +117,18 @@
   <insert id="insert" parameterType="com.fox.innovate.pojo.File" >
     insert into file (file_id, parent_id, device_id, 
       user_id, file_url, file_name, 
-      file_type, file_size, file_upload_date, 
-      file_upload_time, file_delete_date, file_delete_time, 
-      file_uploader_id, file_uploader_name, file_delete_id, 
-      file_delete_name, data_status)
+      file_type, file_size, file_upload_ip, 
+      file_upload_date, file_upload_time, file_delete_date, 
+      file_delete_time, file_uploader_id, file_uploader_name, 
+      file_delete_id, file_delete_name, data_status
+      )
     values (#{fileId,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{deviceId,jdbcType=VARCHAR}, 
       #{userId,jdbcType=VARCHAR}, #{fileUrl,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
-      #{fileType,jdbcType=VARCHAR}, #{fileSize,jdbcType=DECIMAL}, #{fileUploadDate,jdbcType=VARCHAR}, 
-      #{fileUploadTime,jdbcType=VARCHAR}, #{fileDeleteDate,jdbcType=VARCHAR}, #{fileDeleteTime,jdbcType=VARCHAR}, 
-      #{fileUploaderId,jdbcType=VARCHAR}, #{fileUploaderName,jdbcType=VARCHAR}, #{fileDeleteId,jdbcType=VARCHAR}, 
-      #{fileDeleteName,jdbcType=VARCHAR}, #{dataStatus,jdbcType=INTEGER})
+      #{fileType,jdbcType=VARCHAR}, #{fileSize,jdbcType=DECIMAL}, #{fileUploadIp,jdbcType=VARCHAR}, 
+      #{fileUploadDate,jdbcType=VARCHAR}, #{fileUploadTime,jdbcType=VARCHAR}, #{fileDeleteDate,jdbcType=VARCHAR}, 
+      #{fileDeleteTime,jdbcType=VARCHAR}, #{fileUploaderId,jdbcType=VARCHAR}, #{fileUploaderName,jdbcType=VARCHAR}, 
+      #{fileDeleteId,jdbcType=VARCHAR}, #{fileDeleteName,jdbcType=VARCHAR}, #{dataStatus,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.fox.innovate.pojo.File" >
     insert into file
@@ -154,6 +156,9 @@
       </if>
       <if test="fileSize != null" >
         file_size,
+      </if>
+      <if test="fileUploadIp != null" >
+        file_upload_ip,
       </if>
       <if test="fileUploadDate != null" >
         file_upload_date,
@@ -207,6 +212,9 @@
       </if>
       <if test="fileSize != null" >
         #{fileSize,jdbcType=DECIMAL},
+      </if>
+      <if test="fileUploadIp != null" >
+        #{fileUploadIp,jdbcType=VARCHAR},
       </if>
       <if test="fileUploadDate != null" >
         #{fileUploadDate,jdbcType=VARCHAR},
@@ -270,6 +278,9 @@
       <if test="record.fileSize != null" >
         file_size = #{record.fileSize,jdbcType=DECIMAL},
       </if>
+      <if test="record.fileUploadIp != null" >
+        file_upload_ip = #{record.fileUploadIp,jdbcType=VARCHAR},
+      </if>
       <if test="record.fileUploadDate != null" >
         file_upload_date = #{record.fileUploadDate,jdbcType=VARCHAR},
       </if>
@@ -312,6 +323,7 @@
       file_name = #{record.fileName,jdbcType=VARCHAR},
       file_type = #{record.fileType,jdbcType=VARCHAR},
       file_size = #{record.fileSize,jdbcType=DECIMAL},
+      file_upload_ip = #{record.fileUploadIp,jdbcType=VARCHAR},
       file_upload_date = #{record.fileUploadDate,jdbcType=VARCHAR},
       file_upload_time = #{record.fileUploadTime,jdbcType=VARCHAR},
       file_delete_date = #{record.fileDeleteDate,jdbcType=VARCHAR},
@@ -348,6 +360,9 @@
       </if>
       <if test="fileSize != null" >
         file_size = #{fileSize,jdbcType=DECIMAL},
+      </if>
+      <if test="fileUploadIp != null" >
+        file_upload_ip = #{fileUploadIp,jdbcType=VARCHAR},
       </if>
       <if test="fileUploadDate != null" >
         file_upload_date = #{fileUploadDate,jdbcType=VARCHAR},
@@ -388,6 +403,7 @@
       file_name = #{fileName,jdbcType=VARCHAR},
       file_type = #{fileType,jdbcType=VARCHAR},
       file_size = #{fileSize,jdbcType=DECIMAL},
+      file_upload_ip = #{fileUploadIp,jdbcType=VARCHAR},
       file_upload_date = #{fileUploadDate,jdbcType=VARCHAR},
       file_upload_time = #{fileUploadTime,jdbcType=VARCHAR},
       file_delete_date = #{fileDeleteDate,jdbcType=VARCHAR},
@@ -437,5 +453,4 @@
     </if>
     ORDER BY file_upload_date DESC
   </select>
-
 </mapper>

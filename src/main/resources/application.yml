@@ -1,5 +1,5 @@
 server:
-  port: 12301
+  port: 8890
 # 默认使用开发配置
 spring:
   profiles:
@@ -17,10 +17,10 @@ spring:
   profiles: dev
 
   datasource: 
-    url: jdbc:mysql://IP:3306/static_files?useUnicode=true&amp;characterEncoding=UTF-8
+    url: jdbc:mysql://47.107.131.56:3306/static_files?useUnicode=true&amp;characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
-    username: *****
-    password: *****
+    username: root
+    password: zl741280229
   servlet:
     multipart:
       max-file-size: 20MB
@@ -33,17 +33,12 @@ fdfs:
     width: 200
     height: 200
   tracker-list:            #TrackerList参数,支持多个
-    - IP:12302
-
+    - 127.0.0.1:22122
 myprops:
-  fastUrl: http://IP:8080
+  fastUrl: http://120.78.224.202:8899
 
-
-
-
-
-
-
-
-
-
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    org.springframework.web: DEBUG
+    com.thinkingcao.demo.wechat: DEBUG

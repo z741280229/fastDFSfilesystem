@@ -19,6 +19,8 @@ public class File {
 
     private BigDecimal fileSize;
 
+    private String fileUploadIp;
+
     private String fileUploadDate;
 
     private String fileUploadTime;
@@ -99,6 +101,14 @@ public class File {
 
     public void setFileSize(BigDecimal fileSize) {
         this.fileSize = fileSize;
+    }
+
+    public String getFileUploadIp() {
+        return fileUploadIp;
+    }
+
+    public void setFileUploadIp(String fileUploadIp) {
+        this.fileUploadIp = fileUploadIp == null ? null : fileUploadIp.trim();
     }
 
     public String getFileUploadDate() {

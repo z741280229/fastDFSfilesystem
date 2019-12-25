@@ -1,13 +1,15 @@
 package com.fox.innovate.service.impl;
 
 import com.fox.innovate.mapper.FileMapper;
+import com.fox.innovate.mapper.UpTokenMapper;
 import com.fox.innovate.pojo.File;
-import com.fox.innovate.pojo.FileExample;
 import com.fox.innovate.service.FileService;
+import com.fox.innovate.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,6 +21,9 @@ public class FileServiceImpl implements FileService {
 
     @Autowired
     private FileMapper fileMapper;
+
+    @Autowired
+    UpTokenMapper upTokenMapper;
 
 
     @Override
@@ -50,10 +55,17 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public int deletePicUrl(String fileId) {
+    public int deletePicUrl(String fileId,String userId) {
         File file = new File();
         file.setFileId(fileId);
+        file.setFileDeleteId(userId);
+        file.setFileDeleteTime(DateUtils.formatDate(new Date()));
         file.setDataStatus(0);
         return fileMapper.updateByPrimaryKeySelective(file);
+    }
+
+    @Override
+    public String getToken() {
+        return upTokenMapper.getToken();
     }
 }

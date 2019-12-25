@@ -655,6 +655,76 @@ public class FileExample {
             return (Criteria) this;
         }
 
+        public Criteria andFileUploadIpIsNull() {
+            addCriterion("file_upload_ip is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpIsNotNull() {
+            addCriterion("file_upload_ip is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpEqualTo(String value) {
+            addCriterion("file_upload_ip =", value, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpNotEqualTo(String value) {
+            addCriterion("file_upload_ip <>", value, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpGreaterThan(String value) {
+            addCriterion("file_upload_ip >", value, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpGreaterThanOrEqualTo(String value) {
+            addCriterion("file_upload_ip >=", value, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpLessThan(String value) {
+            addCriterion("file_upload_ip <", value, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpLessThanOrEqualTo(String value) {
+            addCriterion("file_upload_ip <=", value, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpLike(String value) {
+            addCriterion("file_upload_ip like", value, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpNotLike(String value) {
+            addCriterion("file_upload_ip not like", value, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpIn(List<String> values) {
+            addCriterion("file_upload_ip in", values, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpNotIn(List<String> values) {
+            addCriterion("file_upload_ip not in", values, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpBetween(String value1, String value2) {
+            addCriterion("file_upload_ip between", value1, value2, "fileUploadIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUploadIpNotBetween(String value1, String value2) {
+            addCriterion("file_upload_ip not between", value1, value2, "fileUploadIp");
+            return (Criteria) this;
+        }
+
         public Criteria andFileUploadDateIsNull() {
             addCriterion("file_upload_date is null");
             return (Criteria) this;
